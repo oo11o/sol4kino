@@ -1,0 +1,29 @@
+{
+  "name": "apikino",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.ja"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oo11o/apikino.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oo11o/apikino/issues"
+  },
+  "homepage": "https://github.com/oo11o/apikino#readme",
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
