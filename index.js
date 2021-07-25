@@ -1,12 +1,37 @@
 const express = require('express')
+const sequelize = require('./database')
 const app = express()
 
-const PORT = process.env.PORT || 3011
+const SQL = require('./models/similars')
+
+
+const PORT = process.env.PORT || 3012
 
 const addSimilarRouter = require('./routes/db/addSimilarRouter')
-
 app.use(addSimilarRouter)
 
-app.listen(PORT, () => {
-    console.log('Server is running')
-})
+
+
+async function start(){
+    try{
+        await sequelize.sync()
+        app.listen(PORT, () => {
+            console.log('Server is running')
+        })
+
+        //let log = await SQL.getSimilarFilms(1)
+        //let log = await SQL.addSimilarFilm(1,1, 'tes')
+        //log.insertId
+        //log.affectedRows
+            // console.log(log)
+
+
+    }catch (e) {
+        console.log('sd')
+        console.log(e)
+    }
+}
+
+
+
+start()

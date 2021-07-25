@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25cb9e29-05a8-4d22-ac98-1a342cb05634" name="Default Changelist" comment="">
+    <list default="true" id="01dddbfb-8938-43d9-b464-87bca131e83e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/similars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,7 +16,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -22,51 +30,69 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1vfgbjr4D06WpIcbUBO8tkj0PCX" />
+  <component name="ProjectId" id="1vnckhtwXB9rQlDt2US0IqFj9GA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/routes/db" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Node.js.addSimilarRouter.js">
-    <configuration name="addSimilarRouter.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/db/addSimilarRouter.js" working-dir="$PROJECT_DIR$/routes/db">
-      <method v="2" />
-    </configuration>
-    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/test.js" working-dir="$PROJECT_DIR$">
+  <component name="RunManager">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.addSimilarRouter.js" />
-        <item itemvalue="Node.js.test.js" />
+        <item itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="25cb9e29-05a8-4d22-ac98-1a342cb05634" name="Default Changelist" comment="" />
-      <created>1626958630381</created>
+      <changelist id="01dddbfb-8938-43d9-b464-87bca131e83e" name="Default Changelist" comment="" />
+      <created>1627201437886</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1626958630381</updated>
-      <workItem from="1626958631541" duration="5264000" />
+      <updated>1627201437886</updated>
+      <workItem from="1627201439383" duration="7306000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="292" key="Github.CreateGistDialog" timestamp="1627211166285">
+      <screen x="0" y="23" width="1280" height="728" />
+    </state>
+    <state x="449" y="292" key="Github.CreateGistDialog/0.23.1280.728@0.23.1280.728" timestamp="1627211166285" />
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom" timestamp="1627237415886">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.bottom/0.23.1280.727@0.23.1280.727" timestamp="1627237415886" />
+    <state width="1238" height="181" key="GridCell.Tab.0.center" timestamp="1627237415885">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.center/0.23.1280.727@0.23.1280.727" timestamp="1627237415885" />
+    <state width="1238" height="181" key="GridCell.Tab.0.left" timestamp="1627237415884">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.left/0.23.1280.727@0.23.1280.727" timestamp="1627237415884" />
+    <state width="1238" height="181" key="GridCell.Tab.0.right" timestamp="1627237415885">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1238" height="181" key="GridCell.Tab.0.right/0.23.1280.727@0.23.1280.727" timestamp="1627237415885" />
+    <state x="305" y="76" key="search.everywhere.popup" timestamp="1627201528217">
+      <screen x="0" y="23" width="1280" height="729" />
+    </state>
+    <state x="305" y="76" key="search.everywhere.popup/0.23.1280.729@0.23.1280.729" timestamp="1627201528217" />
   </component>
 </project>
