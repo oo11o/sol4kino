@@ -6,7 +6,6 @@ class Similars {
     static async addSimilarFilm(film_id, similar_film_id, from = 'kp'){
         const [results] =  await sequelize.query("INSERT IGNORE INTO similars (`film_id`, `similar_film_id`, `from`)"
             +`VALUES(${film_id}, ${similar_film_id}, '${from}')`)
-
         return results
     }
 

@@ -1,18 +1,22 @@
 const express = require('express')
+const bodyParser = require('body-parser');
+
 const sequelize = require('./database')
 const app = express()
+
 
 const SQL = require('./models/similars')
 
 
 const PORT = process.env.PORT || 3011
 
+app.use(bodyParser.json());
+
 const similarRouter = require('./routes/db/similarRouter')
 const filmRouter = require('./routes/db/filmRouter')
 
 app.use(similarRouter)
 app.use(filmRouter)
-
 
 
 async function start(){
