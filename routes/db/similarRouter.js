@@ -1,7 +1,7 @@
 const  {Router} = require('express')
 const router = Router()
 
-router.post('/db/addsimilar', (req,res) =>{
+router.post('/db/similar/add', (req,res) =>{
 
 //  let test = typeof (req.body.film)
 
