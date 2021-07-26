@@ -1,11 +1,15 @@
 const  {Router} = require('express')
 const router = Router()
 
-router.get('/db/addsimilar', (req,res) =>{
+router.post('/db/addsimilar', (req,res) =>{
+
+//  let test = typeof (req.body.film)
+
+
   res.status(200).json({
-    'res':'ОК'
+      'status': req.body.film
   })
-  console.log('res')
+
 })
 
 module.exports = router
