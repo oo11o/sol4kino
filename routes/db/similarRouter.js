@@ -3,6 +3,7 @@ const router = Router()
 const Kino = require('parsekino')
 
 const Films = require('../../models/films')
+const Similars = require('../../models/similars')
 
 router.post('/db/similar/add', async (req,res) => {
     let mes = 'Start'
@@ -22,8 +23,9 @@ router.post('/db/similar/add', async (req,res) => {
             if(filmId.length == 0){
                const insertResult = await Films.insertFilm(item.url, item.name, 1)
                console.log(insertResult)
+            }else{
+                
             }
-
         }
 
         mes = 'Status 1'

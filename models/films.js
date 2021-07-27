@@ -21,7 +21,7 @@ class Films{
     }
 
     static async updateStatusById(id,status){
-        const [results] =  await sequelize.query(`UPDATE films SET status = ${id} WHERE id = ${status}`);
+        const [results] =  await sequelize.query(`UPDATE films SET status = ${status}, updated_at = CURRENT_TIMESTAMP  WHERE id = ${id}`);
         return  results
     }
 
