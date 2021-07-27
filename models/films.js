@@ -30,6 +30,11 @@ class Films{
         return  results
     }
 
+    static async getStatusOne(){
+        const [results] =  await sequelize.query(`SELECT * FROM films WHERE status = 1 LIMIT 0,1`);
+        return  results
+    }
+
 }
 
 module.exports = Films
