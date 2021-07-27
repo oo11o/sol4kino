@@ -25,7 +25,9 @@ router.post('/db/similar/add', async (req,res) => {
             // film is isset in Films table  0 = no
             if(filmId.length == 0){
                const insertResult = await Films.insertFilm(item.url, item.name, 1)
-                Similars.addSimilarFilm(result[0].id, filmId[0].id, position)
+                let filmIdNew = await Films.getIdByUrl(item.url)
+
+                Similars.addSimilarFilm(result[0].id, filmIdNew[0].id, position)
             }else{
                 const similarItem = await Similars.getSimilarItem(result[0].id, filmId[0].id)
                 if(similarItem.length == 0){
