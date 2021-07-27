@@ -2,7 +2,7 @@ const axios = require('axios')
 const Films = require('./models/films')
 require('dotenv').config()
 
-const url = process.env.APIHOST + '/db/similar/add'
+const url = process.env.APILOCAl + '/db/similar/add'
 
 async function start() {
     const result = await Films.getStatusOne()
