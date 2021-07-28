@@ -21,6 +21,7 @@ class Films{
     }
 
     static async updateStatusById(id,status){
+        console.log(sequelize)
         const [results] =  await sequelize.query(`UPDATE films SET status = ${status}, updated_at = CURRENT_TIMESTAMP  WHERE id = ${id}`);
         return  results
     }
@@ -31,6 +32,7 @@ class Films{
     }
 
     static async getStatusOne(){
+
         const [results] =  await sequelize.query(`SELECT * FROM films WHERE status = 1 LIMIT 0,1`);
         return  results
     }

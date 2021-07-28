@@ -7,6 +7,7 @@ const Similars = require('../../models/similars')
 
 router.post('/db/similar/add', async (req,res) => {
     let mes = 'Start'
+    let similarFilms = ''
     const result = await Films.getById(req.body.id)
 
     //console.log(result[0].status)
@@ -15,7 +16,7 @@ router.post('/db/similar/add', async (req,res) => {
         await Films.updateStatusById(req.body.id, 1)
 
         Kino.url = 'https://www.kinopoisk.ru'+ result[0].url_kp
-        const similarFilms = await Kino.getSimilar()
+        similarFilms = await Kino.getSimilar()
       //  console.log(similarFilms)
         let position = 1
         for(let item of similarFilms  ){
