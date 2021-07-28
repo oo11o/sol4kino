@@ -46,7 +46,8 @@ router.post('/db/similar/add', async (req,res) => {
     }
 
     res.status(200).json({
-        'status1': mes,
+        'mes': mes,
+        'idFilm': result[0].id,
         'status': 'OK'
     })
 })
