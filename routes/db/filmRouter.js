@@ -1,6 +1,7 @@
 const  {Router} = require('express')
 const router = Router()
 const Films = require('../../models/films')
+const Kino = require('parsekino')
 
 router.get('/db/film/getid', async (req,res) =>{
 
@@ -14,6 +15,17 @@ router.get('/db/film/getid', async (req,res) =>{
         'status': 'test2',
         'idFilm': idFilm
     })
+})
+
+router.post('/db/film/update', async (req,res) => {
+    const result = await Films.getById(req.body.id)
+    const id = result[0].id
+    Kino.url = 'https://www.kinopoisk.ru'+ result[0].url_kp
+    film = await Kino.getInfo()
+
+    console.log(film)
+
+
 })
 
 module.exports = router
