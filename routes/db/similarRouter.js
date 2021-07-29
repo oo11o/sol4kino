@@ -27,13 +27,13 @@ router.post('/db/similar/add', async (req,res) => {
             if(filmId.length == 0){
                 const insertResult = await Films.insertFilm(item.url, item.name, 1)
                 let filmIdNew = await Films.getIdByUrl(item.url)
-
                 await Similars.addSimilarFilm(result[0].id, filmIdNew[0].id, position)
             }else{
                 const similarItem = await Similars.getSimilarItem(result[0].id, filmId[0].id)
+
                 if(similarItem.length == 0){
                     await Similars.addSimilarFilm(result[0].id, filmId[0].id, position)
-                    Films.updateStatusById(filmId[0].id, 1)
+                    Films.updateStatusByIdSimilar(filmId[0].id, 1)
                 }
             }
         position++

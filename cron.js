@@ -31,7 +31,7 @@ async function start() {
 
 }
 
-cron.schedule('*/2 * * * *', async () => {
+cron.schedule('*/8 * * * *', async () => {
     const result =  await start()
     console.log(result)
     console.log('running a task every 2 minute');

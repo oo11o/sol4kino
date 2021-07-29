@@ -21,10 +21,17 @@ class Films{
     }
 
     static async updateStatusById(id,status){
-        console.log(sequelize)
+
         const [results] =  await sequelize.query(`UPDATE films SET status = ${status}, updated_at = CURRENT_TIMESTAMP  WHERE id = ${id}`);
         return  results
     }
+
+    static async updateStatusByIdSimilar(id,status){
+
+        const [results] =  await sequelize.query(`UPDATE films SET status = ${status}, updated_at = CURRENT_TIMESTAMP  WHERE id = ${id} AND status IS NULL`);
+        return  results
+    }
+
 
     static async insertFilm(url,name,status = null){
         const [results] =  await sequelize.query(`INSERT INTO films(url_kp, name, status) VALUES ('${url}','${name}', '${status}')`);
