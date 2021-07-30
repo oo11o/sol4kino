@@ -23,8 +23,11 @@ router.post('/db/film/updateinfo', async (req,res) => {
     const id = result[0].id
     Kino.url = 'https://www.kinopoisk.ru'+ result[0].url_kp
     console.log(Kino.url)
-    film = await Kino.getInfo()
 
+    const film = await Kino.getInfo()
+    film.encyclopedia.forEach((el)=>{
+        console.log(el)
+    })
     Films.updateInfo(id,film)
 
     console.log(film)
