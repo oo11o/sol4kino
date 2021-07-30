@@ -10,12 +10,7 @@ const url = process.env.APIHOST + '/db/similar/add'
 
 async function start() {
     var now = new Date();
-
-    fs.appendFile('/home/code/Web/apikino/text.txt ', '\n This is my text.' +  now , function (err) {
-        if (err) throw err;
-        console.log('Updated!');
-    });
-
+    
     const result = await Films.getStatusOne()
 
 

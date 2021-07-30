@@ -17,11 +17,15 @@ router.get('/db/film/getid', async (req,res) =>{
     })
 })
 
-router.post('/db/film/update', async (req,res) => {
+router.post('/db/film/updateinfo', async (req,res) => {
+
     const result = await Films.getById(req.body.id)
     const id = result[0].id
     Kino.url = 'https://www.kinopoisk.ru'+ result[0].url_kp
+    console.log(Kino.url)
     film = await Kino.getInfo()
+
+    Films.updateInfo(id,film)
 
     console.log(film)
 
