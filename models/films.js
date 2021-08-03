@@ -45,16 +45,16 @@ class Films{
         //     encyclopedia = '${data.encyclopedia}'
         const sql = `UPDATE films
             SET status = 4,
-                name_original = '${data.originalName}',
-                description = '${data.description}',
+                name_original ='${(data.originalName).replace(/'/g, "\\'")}',
+                description = '${(data.description).replace(/'/g, "\\'")}',
                 poster      = '${data.poster}',
                 rate_imdb    = '${data.rate.imdb}',
                 rate_imdb_count    = '${imdbCount}',
                 rate_kp    = '${data.rate.kinopoisk}',
                 rate_kp_count    = '${kinopoiskCount}',
                 actor =   '${actors}',
-                encyclopedia = "${encyclopedia}",
-                year_kp = '${year}',
+                encyclopedia = '${encyclopedia.replace(/'/g, "\\'")}',
+                year_kp = ${year},
                 updated_at = CURRENT_TIMESTAMP
             WHERE id = ${id}`
 
@@ -70,7 +70,7 @@ class Films{
 
     static async getStatusOne(status = 1){
 
-        const [results] =  await sequelize.query(`SELECT * FROM films WHERE status = ${status} LIMIT 0,1`);
+        const [results] =  await sequelize.query(`SELECT * FROM films WHERE status = ${status}  ORDER BY RAND() LIMIT 0,1`);
         return  results
     }
 
