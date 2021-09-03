@@ -54,7 +54,7 @@ class Films{
                 rate_kp_count    = '${kinopoiskCount}',
                 actor =   '${actors}',
                 encyclopedia = '${encyclopedia.replace(/'/g, "\\'")}',
-                year_kp = ${year},
+                year_kp = '${year}',
                 updated_at = CURRENT_TIMESTAMP
             WHERE id = ${id}`
 
