@@ -56,32 +56,7 @@ class Films{
 
     static async updateInfo(id, data){
 
-        const actors = JSON.stringify(data.actors)
-
-        const kinopoiskCount = (data.rate.kinopoiskCount).replace(/\s/g, '')
-        const imdbCount = (data.rate.imdbCount).replace(/\s/g, '')
-        const year = data.encyclopedia[0].value
-
-        const encyclopedia = JSON.stringify(data.encyclopedia)
-
-        //     encyclopedia = '${data.encyclopedia}'
-        const sql = `UPDATE films
-            SET status = 4,
-                name_original ='${(data.originalName).replace(/'/g, "\\'")}',
-                description = '${(data.description).replace(/'/g, "\\'")}',
-                poster      = '${data.poster}',
-                rate_imdb    = '${data.rate.imdb}',
-                rate_imdb_count    = '${imdbCount}',
-                rate_kp    = '${data.rate.kinopoisk}',
-                rate_kp_count    = '${kinopoiskCount}',
-                actor =   '${actors}',
-                encyclopedia = '${encyclopedia.replace(/'/g, "\\'")}',
-                year_kp = '${year}',
-                updated_at = CURRENT_TIMESTAMP
-            WHERE id = ${id}`
-
-        const [results] =  await sequelize.query(sql);
-        return  results
+        getById
     }
 
 
