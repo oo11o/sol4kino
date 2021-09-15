@@ -12,7 +12,7 @@
     "acorn-walk": "^7.2.0",
     "agent-base": "^6.0.2",
     "ansi-align": "^3.0.0",
-    "ansi-regex": "^5.0.0",
+    "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
     "any-promise": "^1.3.0",
     "anymatch": "^3.1.2",
@@ -93,7 +93,6 @@
     "fresh": "^0.5.2",
     "fs-constants": "^1.0.0",
     "fs.realpath": "^1.0.0",
-    "fsevents": "^2.3.2",
     "generate-function": "^2.3.1",
     "get-stream": "^5.2.0",
     "glob": "^7.1.7",
@@ -175,7 +174,7 @@
     "p-try": "^2.2.0",
     "package-json": "^6.5.0",
     "parse5": "^6.0.1",
-    "parsekino": "^0.1.11",
+    "parsekino": "^0.1.12",
     "parseurl": "^1.3.3",
     "path-exists": "^4.0.0",
     "path-is-absolute": "^1.0.1",
@@ -194,7 +193,6 @@
     "pump": "^3.0.0",
     "punycode": "^2.1.1",
     "pupa": "^2.1.1",
-    "puppeteer": "^10.1.0",
     "qs": "^6.7.0",
     "range-parser": "^1.2.1",
     "raw-body": "^2.4.0",
@@ -221,8 +219,8 @@
     "source-map": "^0.6.1",
     "sqlstring": "^2.3.2",
     "statuses": "^1.5.0",
-    "string_decoder": "^1.3.0",
     "string-width": "^4.2.2",
+    "string_decoder": "^1.3.0",
     "strip-ansi": "^6.0.0",
     "strip-json-comments": "^2.0.1",
     "supports-color": "^5.5.0",
@@ -285,5 +283,8 @@
   "bugs": {
     "url": "https://github.com/oo11o/apikino/issues"
   },
-  "homepage": "https://github.com/oo11o/apikino#readme"
+  "homepage": "https://github.com/oo11o/apikino#readme",
+  "devDependencies": {
+    "puppeteer": "^10.2.0"
+  }
 }

@@ -7,8 +7,6 @@ const Kino = require('parsekino')
 var fs = require('fs');
 
 require('dotenv').config({})
-// const url = process.env.APIHOST + '/db/film/updateinfo'
-
 
 async function start() {
 
@@ -20,6 +18,10 @@ async function start() {
         order: Sequelize.literal('rand()')
     })
 
+    if(!filmStatus3){
+        clearInterval(idTimer)
+        return false
+    }
 
     // GET FILM INFO
     Kino.url = 'https://www.kinopoisk.ru'+ filmStatus3.url_kp
@@ -71,8 +73,8 @@ async function start() {
 
 
 
-
-setInterval(start, 50000)
+//start()
+const idTimer = setInterval(start, 50000)
 
 
 // cron.schedule('*/8 * * * *', async () => {
