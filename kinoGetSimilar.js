@@ -1,6 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const Films = require('./models/films')
+const Films = require('./models/similars')
 const Test = require('./models/testTable')
 
 const Kino = require('parsekino')
@@ -20,10 +21,9 @@ async function start() {
       //  order: Sequelize.literal('rand()')
     })
 
-    console.log(filmStatus1)
 
     Kino.url = 'https://www.kinopoisk.ru'+ filmStatus1.url_kp
-    const  similarFilms = await Kino.getSimilar()
+    const  similarFilms =  await Kino.getSimilar()
     console.log(similarFilms)
 
     let position = 1
@@ -35,31 +35,38 @@ async function start() {
                  attributes: ['id'],
                  where:{url_kp : item.url}})
 
-        // film is isset in Films table  0 = no
-        const jane = await Test.create({ test1: "Jane" });
 
-        // Jane exists in the database now!
-        console.log(jane); // true
-        console.log(jane.id); // "Jane"
+        if(filmId === null){
+            // film no found in Films table
+            let filmNew = await Films.create({
+                url_kp: item.url,
+                name: item.name,
+                status: 1
+            });
 
-        return  false
+            await addSimilarFilms(film.id, position)
+            await Similars.addSimilarFilm(filmStatus1.id, filmNew.id, position)
 
-
-        if(filmId.length == 0){
-            const insertResult = await Films.insertFilm(item.url, item.name, 1)
-            let filmIdNew = await Films.getIdByUrl(item.url)
-            await Similars.addSimilarFilm(result[0].id, filmIdNew[0].id, position)
         }else{
-            const similarItem = await Similars.getSimilarItem(result[0].id, filmId[0].id)
-
-            if(similarItem.length == 0){
-                await Similars.addSimilarFilm(result[0].id, filmId[0].id, position)
-                Films.updateStatusByIdSimilar(filmId[0].id, 1)
-            }
+            // film found in Films table
+            //
+             let similarItem = await Similars.findOne({
+                                                attributes: ['id'],
+                                                where:{
+                                                        film_id: item.url,
+                                                        similar_film_id:
+                                                }
+             })
+            // const similarItem = await Similars.getSimilarItem(result[0].id, filmId[0].id)
+            //
+            // if(similarItem.length == 0){
+            //     await Similars.addSimilarFilm(result[0].id, filmId[0].id, position)
+            //     Films.updateStatusByIdSimilar(filmId[0].id, 1)
+            // }
         }
         position++
     }
-    console.log(filmId)
+
     return  false;
 
 
@@ -85,6 +92,10 @@ async function start() {
     //     .catch(function (error) {
     //         console.log(error);
     //     });
+
+}
+
+async function  addSimilarFilm(){
 
 }
 
