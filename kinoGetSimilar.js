@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const Films = require('./models/films')
-const Films = require('./models/similars')
+const Similars = require('./models/similars')
 const Test = require('./models/testTable')
 
 const Kino = require('parsekino')
@@ -31,12 +31,12 @@ async function start() {
     for(let item of similarFilms  ){
         console.log('********')
 
-        let filmId = await Films.findOne({
+        let similar = await Films.findOne({
                  attributes: ['id'],
                  where:{url_kp : item.url}})
 
 
-        if(filmId === null){
+        if(similar === null){
             // film no found in Films table
             let filmNew = await Films.create({
                 url_kp: item.url,
@@ -44,36 +44,52 @@ async function start() {
                 status: 1
             });
 
-            await addSimilarFilms(film.id, position)
-            await Similars.addSimilarFilm(filmStatus1.id, filmNew.id, position)
+            await addSimilarFilm(filmStatus1.id, filmNew.id, position)
 
         }else{
             // film found in Films table
             //
-             let similarItem = await Similars.findOne({
+             let issetSimilar = await Similars.findOne({
                                                 attributes: ['id'],
                                                 where:{
-                                                        film_id: item.url,
-                                                        similar_film_id:
+                                                        film_id: filmStatus1.id,
+                                                        similar_film_id: similar.id
                                                 }
              })
-            // const similarItem = await Similars.getSimilarItem(result[0].id, filmId[0].id)
-            //
-            // if(similarItem.length == 0){
-            //     await Similars.addSimilarFilm(result[0].id, filmId[0].id, position)
-            //     Films.updateStatusByIdSimilar(filmId[0].id, 1)
-            // }
+
+            if(issetSimilar === null){
+                await addSimilarFilm(filmStatus1.id, similar.id, position)
+                await Films.update(
+                    {
+                        status: 1,
+                        updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
+                    },{
+                        where:{
+                           status: null
+                        }
+                    })
+            }
         }
         position++
+        //end cycle
     }
+
+    await Films.update({
+        status: 3,
+        updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
+    },{
+        where: {
+            id: filmStatus1.id
+        }
+    })
 
     return  false;
 
 
 
-            Films.updateStatusById(result[0].id, 3)
+          //  Films.updateStatusById(result[0].id, 3)
 
-            mes = 'Status 1'
+           // mes = 'Status 1'
 
 
         // res.status(200).json({
@@ -95,7 +111,13 @@ async function start() {
 
 }
 
-async function  addSimilarFilm(){
+async function  addSimilarFilm(film_id, similar_film_id, position, from = 'kp'){
+    await Similars.create({
+        film_id: film_id,
+        similar_film_id: similar_film_id,
+        position: position,
+        from: from
+    })
 
 }
 
