@@ -111,8 +111,18 @@ async function  addSimilarFilm(film_id, similar_film_id, position, from = 'kp'){
 
 }
 
-const idTimer = setInterval(start,160000)
-start()
+async function go(){
+    try {
+       await start()
+    }catch{
+        console.log('STOP PROCESS')
+        clearInterval(idTimer)
+        return false
+    }
+}
+
+const idTimer = setInterval(go,180000)
+
 
 // kinoGetSimilar.schedule('*/8 * * * *', async () => {
 //     const result =  await start()
