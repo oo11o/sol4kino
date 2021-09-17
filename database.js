@@ -12,8 +12,11 @@ const dbConnect = new Sequelize(
     PASSWORD,
     {
         host: HOST,
-        dialect: 'mysql'
-    }
+        dialect: 'mysql',
+        logQueryParameters: true
+    },
+
+
 )
 
 module.exports = dbConnect

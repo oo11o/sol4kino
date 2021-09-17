@@ -18,13 +18,26 @@ async function start() {
         where:{
             status: 1
         },
-      //  order: Sequelize.literal('rand()')
+         order: Sequelize.literal('rand()')
     })
+    if(!filmStatus1){
+        console.log('Clear')
+        clearInterval(idTimer)
+        return false
+    }
+    console.log(filmStatus1.id)
 
 
     Kino.url = 'https://www.kinopoisk.ru'+ filmStatus1.url_kp
     const  similarFilms =  await Kino.getSimilar()
     console.log(similarFilms)
+    console.log(Kino.url)
+    // if(!similarFilms){
+    //     console.log('Similars Empty')
+    //     clearInterval(idTimer)
+    //     return false
+    // }
+    console.log(filmStatus1.id)
 
     let position = 1
 
@@ -65,7 +78,8 @@ async function start() {
                         updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
                     },{
                         where:{
-                           status: null
+                           status: null,
+                           id: similar.id
                         }
                     })
             }
@@ -85,30 +99,6 @@ async function start() {
 
     return  false;
 
-
-
-          //  Films.updateStatusById(result[0].id, 3)
-
-           // mes = 'Status 1'
-
-
-        // res.status(200).json({
-        //     'mes': mes,
-        //     'idFilm': result[0].id,
-        //     'similars': similarFilms,
-        //     'status': 'OK'
-
-
-    // return await axios.post(url, {
-    //     'id': result[0].id,
-    // })
-    //     .then(function (response) {
-    //         return response.data
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
-
 }
 
 async function  addSimilarFilm(film_id, similar_film_id, position, from = 'kp'){
@@ -121,6 +111,7 @@ async function  addSimilarFilm(film_id, similar_film_id, position, from = 'kp'){
 
 }
 
+const idTimer = setInterval(start,160000)
 start()
 
 // kinoGetSimilar.schedule('*/8 * * * *', async () => {
