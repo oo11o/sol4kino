@@ -74,7 +74,7 @@ async function start() {
 
 
 //start()
-const idTimer = setInterval(start, 50000)
+const idTimer = setInterval(start, 120000)
 
 
 // cron.schedule('*/8 * * * *', async () => {
